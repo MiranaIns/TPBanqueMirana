@@ -10,6 +10,7 @@ import jakarta.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 import mg.itu.mirana.tpbanquemirana.entity.CompteBancaire;
+import mg.itu.mirana.tpbanquemirana.jsf.util.Util;
 import mg.itu.mirana.tpbanquemirana.service.GestionnaireCompte;
 
 /**
@@ -37,6 +38,12 @@ public class ListeComptes implements Serializable {
             listeComptes = gestionnaireCompte.getAllComptes();
         }
         return listeComptes;
+    }
+
+    public String supprimerCompte(CompteBancaire compteBancaire) {
+        gestionnaireCompte.supprimerCompte(compteBancaire);
+        Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
+        return "listeComptes?faces-redirect=true";
     }
 
 }
