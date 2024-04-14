@@ -45,7 +45,7 @@ public class GestionnaireCompte {
 
     @Transactional
     public List<CompteBancaire> getAllComptes() {
-        TypedQuery query = em.createNamedQuery("CompteBancaire.findAll", CompteBancaire.class);
+        TypedQuery query = em.createQuery("select c from CompteBancaire c", CompteBancaire.class);
         return query.getResultList();
     }
 
