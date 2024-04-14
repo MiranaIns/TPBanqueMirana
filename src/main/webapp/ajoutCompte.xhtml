@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/template_defaut.xhtml">
+
+            <ui:param name="titre" value="Ajout d'un nouveau compte bancaire"/>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="Nom:" for="nom" />
+                        <h:inputText id="nom" value="#{ajoutCompte.nom}" title="Nom" required="true" requiredMessage="Le nom est obligatoire"/>
+                        <h:message for="nom"/>
+
+                        <h:outputLabel value="Solde:" for="solde" />
+                        <h:inputText id="solde" value="#{ajoutCompte.solde}" title="Solde" required="true" validatorMessage="Le solde saisi doit être positif"/>
+                        <h:message for="solde"/>
+
+                        <h:commandButton id="creerCompte" value='Créer le compte'
+                                         action="#{ajoutCompte.creer}" />
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
