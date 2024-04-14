@@ -42,7 +42,7 @@ public class ListeComptes implements Serializable {
 
     public String supprimerCompte(CompteBancaire compteBancaire) {
         gestionnaireCompte.supprimerCompte(compteBancaire);
-        Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
+        Util.addFlashInfoMessage("Le compte de " + compteBancaire.getNom() + " a été supprimé");
         return "listeComptes?faces-redirect=true";
     }
 
