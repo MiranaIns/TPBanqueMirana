@@ -59,6 +59,9 @@ public class GestionnaireCompte {
             int montant) {
         source.retirer(montant);
         destination.deposer(montant);
+        
+        em.merge(source);
+        em.merge(destination);
     }
 
     @Transactional
