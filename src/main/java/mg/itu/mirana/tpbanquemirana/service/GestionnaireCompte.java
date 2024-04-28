@@ -45,7 +45,7 @@ public class GestionnaireCompte {
 
     @Transactional
     public List<CompteBancaire> getAllComptes() {
-        TypedQuery query = em.createQuery("select c from CompteBancaire c", CompteBancaire.class);
+        TypedQuery query = em.createQuery("select distinct c from CompteBancaire c join fetch c.operations", CompteBancaire.class);
         return query.getResultList();
     }
 
