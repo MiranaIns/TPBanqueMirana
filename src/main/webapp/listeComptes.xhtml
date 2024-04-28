@@ -60,6 +60,17 @@
                                 <h:graphicImage name="images/mod.png"/>
                             </h:link>
                         </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText escape="false" value="Historique&lt;br/>opérations"/>
+                            </f:facet>
+                            <h:link 
+                                title="Voir les historiques des opérations sur le compte de #{item.nom}"
+                                outcome="/operations?id=#{item.id}" >
+                                <h:graphicImage name="images/det.png"/>
+                            </h:link>
+                        </p:column>
                     </p:dataTable>
                 </h:form>
                 <h:messages/>
